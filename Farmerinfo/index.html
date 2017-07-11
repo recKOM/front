@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>市农村土地承包经营权证农户信息</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="stylesheet" href="css/amazeui.min.css"/>
+  <style>
+/*    #mSelect{
+      color:black;
+    }*/
+    .get {
+      background: #1E5B94;
+      color: #000;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      color:#fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+    
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+    #qrcode>img{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin:auto auto;
+    }
+  </style>
+</head>
+
+<body>
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="#">QRCode Ganerator</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <div class="am-topbar-right">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li class="am-active"><a href="index.html">生成二维码</a></li>
+        <li><a href="#">信息概览</a></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="get">
+  <div class="am-g">
+    <div class="am-u-lg-12">
+      <h1 class="get-title">市农村土地承包经营权证农户信息管理系统</h1>
+
+      <p style="color: #fff">
+        请选择承包方代表姓名
+      </p>
+      <select id="mSelect" data-am-selected="{searchBox: 1,btnWidth: '8em', btnSize: 'sm', btnStyle: 'secondary',maxHeight:400}"></select>
+      <p>
+        <a onclick="generateQRCode()"
+         class="am-btn am-btn-lg get-btn"
+          data-am-modal="{target: '#my-alert'}">
+          生成二维码
+        </a>
+      </p>
+        <div  class="am-modal am-popup" tabindex="-1" id="my-alert" >
+          <div class="am-popup-inner">
+              <div class="am-popup-hd">
+                <h4 class="am-popup-title">二维码</h4>
+                <span data-am-modal-close
+                    class="am-close">&times;</span>
+                </div>
+              <div id="qrcode"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="detail">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <h1 class="detail-h2">智能&nbsp;&nbsp;&nbsp;简洁&nbsp;&nbsp;&nbsp;高效</h1>
+
+      <div class="am-g">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+
+          <h3 class="detail-h3">
+            <i class="am-icon-mobile am-icon-sm"></i>
+            移动端App支持
+          </h3>
+
+          <p class="detail-p">
+            支持Android OS设备
+            <br>
+            扫描二维码即可获取信息
+            <br>
+            支持语音播报
+            <br>
+            轻松查询证件编号
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-cogs am-icon-sm"></i>
+            智能处理
+          </h3>
+
+          <p class="detail-p">
+            选择需要生成的信息，系统能够立刻为您产生独一无二的信息二维码，扫描二维码即可在线查询
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-check-square-o am-icon-sm"></i>
+            安全省心
+          </h3>
+
+          <p class="detail-p">
+            数据均采用md5加密算法进行处理，请求数据过程中，不会泄露用户信息，也不会获取用户隐私。
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-send-o am-icon-sm"></i>
+            轻量级，高性能
+          </h3>
+          <p class="detail-p">
+            快速访问，无需等待
+            <br>
+            Linux+Mysql+PHP环境搭建，最多同时支持上万并发请求，为您节省等待时间
+           
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/qrcode.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+
+<script type="text/javascript">
+    (function initSelect(){
+    $.ajax({
+      url:'getName.php',
+      dataType:'json',
+      method:'get',
+      success:function(res){
+        console.log(res);
+        for(var i=0;i<res['name'].length;i++){
+          var option=$("<option></option>");
+          option.text(res['name'][i]);
+          option.val(res['id'][i]);
+          $("#mSelect").append(option);
+        }
+        $("#mSelect").val(1);
+      },
+      error:function(res){
+        alert("获取数据失败!");
+        console.log(res);
+      }
+    })
+  })();
+  function generateQRCode(){
+       var selectedId=$("#mSelect").val();
+       $.ajax({
+          url:'./getHash.php?id='+selectedId,
+          type:'get',
+          dataType:'text',
+          success:function(hash){
+            if(hash!=-1){
+              $("#qrcode").html("");
+              var qrcode = new QRCode(document.getElementById("qrcode"), {
+                width : 256,
+                height : 256
+              });
+              qrcode.makeCode("http://45.32.63.96/getFarmerInfo.php?hash="+hash);
+              console.log("http://45.32.63.96/getFarmerInfo.php?hash="+hash)
+            }else{
+              alert("获取失败");
+            }
+          },
+          error:function(){
+            alert("获取失败")
+          }
+      })
+  }
+</script>
+</body>
+</html>
